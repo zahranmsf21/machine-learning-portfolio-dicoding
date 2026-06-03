@@ -3,104 +3,104 @@
 [![Python Version](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/)
 [![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Classification%20%26%20Clustering-orange)](https://scikit-learn.org/)
 
-Proyek Machine Learning end-to-end yang berfokus pada dua aspek utama analitik data keuangan: **Fraud Detection (Klasifikasi)** dan **Customer Segmentation (Clustering)**.
+An end-to-end Machine Learning project focusing on two major aspects of financial data analytics: **Fraud Detection (Classification)** and **Customer Segmentation (Clustering)**.
 
-> *Proyek ini dikembangkan sebagai Final Capstone Project untuk kursus sertifikasi "Belajar Machine Learning untuk Pemula" oleh Dicoding Academy, dan telah ditingkatkan untuk memenuhi standar portofolio profesional.*
-
----
-
-## Gambaran Umum & Problem Statement
-
-Di sektor keuangan dan perbankan, transaksi penipuan merupakan risiko signifikan yang berpotensi menimbulkan kerugian finansial besar dan menurunkan kepercayaan nasabah. Di sisi lain, kurangnya pemahaman terhadap perilaku pelanggan menghambat institusi keuangan dalam menawarkan layanan yang dipersonalisasi.
-
-Proyek ini menangani kedua tantangan tersebut melalui pipeline Machine Learning dua arah:
-
-1. **Classification Pipeline** — Menggunakan supervised learning (`Decision Tree` dan `Random Forest`) untuk mengidentifikasi apakah suatu transaksi keuangan bersifat fraudulent atau legitimate.
-2. **Clustering Pipeline** — Menggunakan unsupervised learning (`K-Means` + `PCA`) untuk mensegmentasi pelanggan berdasarkan demografi dan perilaku transaksi.
+> *This project was developed as the Final Capstone Project for the "Belajar Machine Learning untuk Pemula" certification course by Dicoding Academy, and has been enhanced to meet professional portfolio standards.*
 
 ---
 
-## Struktur Repository
+## Project Overview & Business Problem
+
+In the financial and banking sector, fraudulent transactions present a significant risk, potentially leading to massive financial losses and diminished customer trust. Conversely, failing to understand customer behavior prevents financial institutions from offering personalized services.
+
+This project addresses both challenges through a dual-approach Machine Learning pipeline:
+
+1. **Classification Pipeline** — Leverages supervised learning (`Decision Tree` and `Random Forest`) to accurately identify whether a financial transaction is fraudulent or legitimate.
+2. **Clustering Pipeline** — Utilizes unsupervised learning (`K-Means` + `PCA`) to segment customers based on demographics and transaction behaviors for deeper business insights.
+
+---
+
+## Repository Structure
 
 ```
 ├── data/
-│   ├── data_clustering_inverse.csv     # Data hasil clustering (skala asli)
-│   └── [historical_transaction_data]   # Dataset mentah dan yang telah dibersihkan
+│   ├── data_clustering_inverse.csv     # Exported clustered data with original scales
+│   └── [historical_transaction_data]   # Raw and cleaned datasets
 ├── models/
-│   └── tuning_classification.h5        # Model terbaik hasil tuning (serialized via joblib)
+│   └── tuning_classification.h5        # Serialized best-performing tuned model (joblib)
 ├── notebooks/
 │   ├── [Klasifikasi]_Submission_Akhir_BMLP_Zahran_Fardiaz.ipynb
 │   └── [Clumination]_Submission_Akhir_BMLP_Zahran_Fardiaz.ipynb
-├── requirements.txt                    # Dependensi proyek dengan versi yang dipinned
+├── requirements.txt                    # Project dependencies with pinned versions
 └── README.md
 ```
 
 ---
 
-## Alur Teknis & Implementasi
+## Technical Workflow & Implementation
 
 ### 1. Classification (Supervised Learning)
 
-- **Handling Imbalanced Data** — Data fraud secara alami sangat tidak seimbang. Keseimbangan kelas dilakukan menggunakan *downsampling* pada kelas mayoritas (`legitimate`) agar pelatihan model tidak bias.
-- **Hyperparameter Tuning** — Mengimplementasikan `GridSearchCV` dan `RandomizedSearchCV` untuk mengoptimalkan kedalaman struktur dan kriteria pemisahan classifier.
-- **Evaluation Metrics** — Model dievaluasi menggunakan *Accuracy, Precision, Recall,* dan *F1-Score* untuk memastikan sensitivitas tinggi dalam mendeteksi fraud sekaligus meminimalkan false positive.
+- **Handling Imbalanced Data** — Financial fraud data is naturally heavily imbalanced. Class balancing was performed using systematic downsampling on the majority class (`legitimate`) to ensure unbiased model training.
+- **Hyperparameter Tuning** — Implemented `GridSearchCV` and `RandomizedSearchCV` to optimize the structural depth and split criteria of the classifiers.
+- **Evaluation Metrics** — Models were evaluated using *Accuracy, Precision, Recall,* and *F1-Score* to ensure high sensitivity toward detecting fraud while minimizing false positives.
 
 ### 2. Clustering (Unsupervised Learning)
 
-- **Feature Engineering & Transformation** — Menggunakan `LabelEncoder` untuk fitur kategorikal dan `StandardScaler` untuk menangani perbedaan magnitudo antar fitur numerik.
-- **Dimensionality Reduction** — Menggunakan *Principal Component Analysis* (`PCA`) untuk mengurangi dimensi sekaligus mempertahankan variansi maksimum, sehingga batas antar cluster lebih jelas.
-- **Optimal Cluster Selection** — Menggunakan *Elbow Method* (via `Yellowbrick KElbowVisualizer`) dan *Silhouette Score* untuk menentukan jumlah segmen pelanggan ($k$) yang paling optimal secara matematis.
+- **Feature Engineering & Transformation** — Applied `LabelEncoder` for categorical features and `StandardScaler` to handle magnitude variances across numerical features.
+- **Dimensionality Reduction** — Utilized *Principal Component Analysis* (`PCA`) to reduce dimensionality while preserving maximum variance, enabling cleaner cluster boundary separation.
+- **Optimal Cluster Selection** — Used the *Elbow Method* (via `Yellowbrick KElbowVisualizer`) and *Silhouette Scores* to mathematically determine the most optimal number of customer segments ($k$).
 
 ---
 
-## Catatan Teknis & Self-Reflection
+## Key Insights & Technical Notes
 
-### Mengenai Performa Model yang Tinggi
+### On the High Model Performance
 
-Jika Anda meninjau metrik evaluasi akhir, model mencapai skor yang hampir sempurna (akurasi, presisi, dan recall tinggi). Dalam lingkungan produksi atau enterprise nyata, data keuangan sangat volatil dan kompleks sehingga skor seperti ini jarang ditemui.
+The final evaluation metrics show near-perfect scores (high accuracy, precision, and recall). In a production or real-world enterprise environment, financial data is highly volatile, noisy, and complex — making such results rare.
 
-Namun, untuk proyek ini:
+However, for this specific project:
 
-- Data berasal dari **dataset kuratif edukatif** (Dicoding Academy), yang dirancang untuk menguji pemahaman dasar pipeline ML siswa, bukan untuk menghadapi entropi data dunia nyata dalam skala besar.
-- Skor yang tinggi memvalidasi bahwa **pipeline feature engineering, alur downsampling, dan hyperparameter grid telah diimplementasikan dengan benar dan optimal** sesuai kerangka teori.
-- Serialisasi model berhasil dilakukan menggunakan `joblib` (`tuning_classification.h5`), sehingga classifier siap untuk deployment atau integrasi API.
+- The data originates from a **curated educational dataset** (Dicoding Academy), designed to test a student's foundational understanding of ML pipelines rather than to simulate real-world data entropy at scale.
+- The near-perfect metrics validate that the **feature engineering pipeline, downsampling workflow, and hyperparameter grids were implemented correctly and optimally** according to theoretical frameworks.
+- Model serialization was successfully completed using `joblib` (`tuning_classification.h5`), making the classifier ready for potential deployment or API integration.
 
 ---
 
-## Cara Menjalankan Secara Lokal
+## How to Run Locally
 
-**1. Clone repository:**
+**1. Clone the repository:**
 ```bash
 git clone https://github.com/username_kamu/financial-fraud-detection-ml.git
 cd financial-fraud-detection-ml
 ```
 
-**2. Buat virtual environment:**
+**2. Set up a virtual environment:**
 ```bash
 python -m venv .venv
 
-# Aktivasi di Windows:
+# Activate on Windows:
 .venv\Scripts\activate
 
-# Aktivasi di Mac/Linux:
+# Activate on Mac/Linux:
 source .venv/bin/activate
 ```
 
-**3. Install dependensi:**
+**3. Install dependencies:**
 ```bash
 pip install -r requirements.txt
 ```
 
-**4. Jalankan Notebook:**
+**4. Run the Notebooks:**
 
-Buka VS Code atau Jupyter Lab, navigasi ke direktori `notebooks/`, pilih `.venv` sebagai kernel aktif, lalu jalankan sel-selnya.
+Open VS Code or Jupyter Lab, navigate to the `notebooks/` directory, select `.venv` as the active kernel, and execute the cells.
 
 ---
 
-## Kredit & Penghargaan
+## Credits & Acknowledgements
 
 | | |
 |---|---|
 | **Author** | Zahran Fardiaz |
 | **Course Provider** | Dicoding Academy — *Belajar Machine Learning untuk Pemula* |
-| **Project Date** | Mei 2026 |
+| **Project Date** | May 2026 |
