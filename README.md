@@ -9,7 +9,7 @@ This repository contains a comprehensive End-to-End Machine Learning project foc
 
 ---
 
-## 📌 Project Overview & Business Problem
+## Project Overview & Business Problem
 
 In the financial and banking sector, fraudulent transactions present a significant risk, potentially leading to massive financial losses and diminished customer trust[cite: 1, 2]. Conversely, failing to understand customer behavior can prevent financial institutions from offering personalized services[cite: 1, 2].
 
@@ -19,7 +19,7 @@ This project addresses both challenges using a dual-approach Machine Learning pi
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ├── data/
 │   ├── data_clustering_inverse.csv     # Exported clustered data with original scales
@@ -34,7 +34,7 @@ This project addresses both challenges using a dual-approach Machine Learning pi
 
 ---
 
-## 🛠️ Technical Workflow & Implementation
+## Technical Workflow & Implementation
 
 ### 1. Classification (Supervised Learning)
 * **Handling Imbalanced Data:** Financial fraud data is naturally heavily imbalanced. Class balancing was performed using systematic downsampling on the majority class (`legitimate`) to ensure unbiased model training[cite: 1, 2].
@@ -48,7 +48,7 @@ This project addresses both challenges using a dual-approach Machine Learning pi
 
 ---
 
-## 📊 Key Insights & Technical Notes (Self-Reflection)
+## Key Insights & Technical Notes (Self-Reflection)
 
 ### About the High Model Performance:
 If you review the final evaluation metrics, the models achieve near-perfect metrics (high accuracy/precision/recall)[cite: 1, 2]. In a production or real-world enterprise environment, financial data is highly volatile, noisy, and complex, making such near-perfect scores rare[cite: 1, 2]. 
@@ -66,3 +66,28 @@ However, for this specific project:
 ```bash
    git clone [https://github.com/username_kamu/financial-fraud-detection-ml.git](https://github.com/username_kamu/financial-fraud-detection-ml.git)
    cd financial-fraud-detection-ml
+```
+
+2. **Set up a virtual environment:**
+```bash
+python -m venv .venv
+   # Activate on Windows:
+   .venv\Scripts\activate
+   # Activate on Mac/Linux:
+   source .venv/bin/activate
+```
+
+3. **Install dependencies:**
+```bash
+pip install -r requirements.txt
+```
+
+4. **Run the Notebooks:**
+```bash
+Open VS Code or Jupyter Lab, navigate to the `notebooks/` directory, select your `.venv` as the active kernel, and execute the cells.
+```
+
+📜 **Credentials & Acknowledgement**
+    Author: Zahran Fardiaz[cite: 1, 2]
+    Course Provider: Dicoding Academy (Belajar Machine Learning untuk Pemula)[cite: 1, 2]
+    Project Date: May, 2026[cite: 1, 2]
