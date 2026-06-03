@@ -82,10 +82,10 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-4. **Run the Notebooks:**
+### 4. **Run the Notebooks:**
 Open VS Code or Jupyter Lab, navigate to the `notebooks/` directory, select your `.venv` as the active kernel, and execute the cells.
 
-📜 **Credentials & Acknowledgement**
-    * Author: Zahran Fardiaz
-    * Course Provider: Dicoding Academy (Belajar Machine Learning untuk Pemula)
-    * Project Date: May, 2026
+### **Credentials & Acknowledgement**
+    * **Author: Zahran Fardiaz
+    * **Course Provider: Dicoding Academy (Belajar Machine Learning untuk Pemula)
+    * **Project Date: May, 2026
