@@ -11,11 +11,11 @@ This repository contains a comprehensive End-to-End Machine Learning project foc
 
 ## Project Overview & Business Problem
 
-In the financial and banking sector, fraudulent transactions present a significant risk, potentially leading to massive financial losses and diminished customer trust[cite: 1, 2]. Conversely, failing to understand customer behavior can prevent financial institutions from offering personalized services[cite: 1, 2].
+In the financial and banking sector, fraudulent transactions present a significant risk, potentially leading to massive financial losses and diminished customer trust. Conversely, failing to understand customer behavior can prevent financial institutions from offering personalized services.
 
 This project addresses both challenges using a dual-approach Machine Learning pipeline:
-1. **Classification Pipeline:** Leveraging supervised learning (`Decision Tree` and `Random Forest`) to accurately identify whether a financial transaction is fraudulent or legitimate[cite: 1, 2].
-2. **Clustering Pipeline:** Utilizing unsupervised learning (`K-Means` coupled with `PCA`) to segment customers based on demographics and transaction behaviors for deeper business insights[cite: 1, 2].
+1. **Classification Pipeline:** Leveraging supervised learning (`Decision Tree` and `Random Forest`) to accurately identify whether a financial transaction is fraudulent or legitimate.
+2. **Clustering Pipeline:** Utilizing unsupervised learning (`K-Means` coupled with `PCA`) to segment customers based on demographics and transaction behaviors for deeper business insights.
 
 ---
 
@@ -37,26 +37,26 @@ This project addresses both challenges using a dual-approach Machine Learning pi
 ## Technical Workflow & Implementation
 
 ### 1. Classification (Supervised Learning)
-* **Handling Imbalanced Data:** Financial fraud data is naturally heavily imbalanced. Class balancing was performed using systematic downsampling on the majority class (`legitimate`) to ensure unbiased model training[cite: 1, 2].
-* **Hyperparameter Tuning:** Implemented `GridSearchCV` and `RandomizedSearchCV` to optimize the structural depth and split criteria of the classifiers[cite: 1, 2].
-* **Evaluation Metrics:** Evaluated models using *Accuracy, Precision, Recall,* and *F1-Score* to ensure high sensitivity toward detecting fraud while minimizing false positives[cite: 1, 2].
+* **Handling Imbalanced Data:** Financial fraud data is naturally heavily imbalanced. Class balancing was performed using systematic downsampling on the majority class (`legitimate`) to ensure unbiased model training.
+* **Hyperparameter Tuning:** Implemented `GridSearchCV` and `RandomizedSearchCV` to optimize the structural depth and split criteria of the classifiers.
+* **Evaluation Metrics:** Evaluated models using *Accuracy, Precision, Recall,* and *F1-Score* to ensure high sensitivity toward detecting fraud while minimizing false positives.
 
 ### 2. Clustering (Unsupervised Learning)
-* **Feature Engineering & Transformation:** Applied `LabelEncoder` for categorical traits and `StandardScaler` to handle magnitude variances across numerical features[cite: 1, 2].
-* **Dimensionality Reduction:** Utilized Principal Component Analysis (`PCA`) to reduce dimensionality while preserving maximum variance, allowing cleaner boundary separations[cite: 1, 2].
-* **Optimal Cluster Selection:** Used the *Elbow Method* (via `Yellowbrick KElbowVisualizer`) and *Silhouette Scores* to mathematically determine the most optimal number of customer segments ($k$)[cite: 1, 2].
+* **Feature Engineering & Transformation:** Applied `LabelEncoder` for categorical traits and `StandardScaler` to handle magnitude variances across numerical features.
+* **Dimensionality Reduction:** Utilized Principal Component Analysis (`PCA`) to reduce dimensionality while preserving maximum variance, allowing cleaner boundary separations.
+* **Optimal Cluster Selection:** Used the *Elbow Method* (via `Yellowbrick KElbowVisualizer`) and *Silhouette Scores* to mathematically determine the most optimal number of customer segments ($k$).
 
 ---
 
 ## Key Insights & Technical Notes (Self-Reflection)
 
 ### About the High Model Performance:
-If you review the final evaluation metrics, the models achieve near-perfect metrics (high accuracy/precision/recall)[cite: 1, 2]. In a production or real-world enterprise environment, financial data is highly volatile, noisy, and complex, making such near-perfect scores rare[cite: 1, 2]. 
+If you review the final evaluation metrics, the models achieve near-perfect metrics (high accuracy/precision/recall)]. In a production or real-world enterprise environment, financial data is highly volatile, noisy, and complex, making such near-perfect scores rare. 
 
 However, for this specific project:
-* The data originates from a curated education dataset (Dicoding Academy), designed to test a student's foundational understanding of ML pipelines rather than dealing with massive real-world data entropy[cite: 1, 2].
-* The near-perfect metrics validate that the **feature engineering pipeline, downsampling workflow, and hyperparameter grids were implemented correctly and optimally** according to theoretical frameworks[cite: 1, 2].
-* Model serialization was successfully done using `joblib` (`tuning_classification.h5`), making the classifier ready for potential deployment or API integration[cite: 1, 2].
+* The data originates from a curated education dataset (Dicoding Academy), designed to test a student's foundational understanding of ML pipelines rather than dealing with massive real-world data entropy.
+* The near-perfect metrics validate that the **feature engineering pipeline, downsampling workflow, and hyperparameter grids were implemented correctly and optimally** according to theoretical frameworks.
+* Model serialization was successfully done using `joblib` (`tuning_classification.h5`), making the classifier ready for potential deployment or API integration.
 
 ---
 
@@ -83,11 +83,9 @@ pip install -r requirements.txt
 ```
 
 4. **Run the Notebooks:**
-```bash
 Open VS Code or Jupyter Lab, navigate to the `notebooks/` directory, select your `.venv` as the active kernel, and execute the cells.
-```
 
 📜 **Credentials & Acknowledgement**
-    Author: Zahran Fardiaz[cite: 1, 2]
-    Course Provider: Dicoding Academy (Belajar Machine Learning untuk Pemula)[cite: 1, 2]
-    Project Date: May, 2026[cite: 1, 2]
+    * Author: Zahran Fardiaz
+    * Course Provider: Dicoding Academy (Belajar Machine Learning untuk Pemula)
+    * Project Date: May, 2026
